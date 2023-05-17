@@ -59,6 +59,8 @@ person.address = "SG";
 person.age = 20;
 person.email = "khoa@gmail.com";
 
+person.printInfo()
+
 // 2. Thêm key-value về github của bạn (github là một đối tượng gồm các thuộc tính: id, username, url) và mức lương mong muốn (number), cập nhật tên của bạn thành dạng rút gọn, ví dụ: "Dang Tran Quyen" => "Tran Quyen" || "Quyen Dang", xóa mức lương đó đi
 
 person.github = {
@@ -76,7 +78,7 @@ person.github.username = person.github.username
 
 delete person.github.salary;
 
-console.log(`🚀 | myGithub:`, person);
+console.log(person);
 
 // 3. Đóng băng 2 thuộc tính email và github (sử dụng defineProperties)
 
@@ -105,10 +107,12 @@ for (var key in person) {
 // 5. Thêm một phương thức để lấy ra thông tin github (return), Cho object salary, hãy gộp nó vào object ban đầu
 
 Object.defineProperty(person, "getGithub", {
-  value: function () {
+  value() {
     return this.github;
   },
 });
+
+console.log(person.getGithub())
 
 var salary = {
   usd: 2000,
